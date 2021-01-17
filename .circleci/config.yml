@@ -1,0 +1,74 @@
+version: 2.1
+
+workflows:
+  staging:
+    jobs:
+      - install_dependencies
+  production:
+    jobs:
+      - install_dependencies
+      - build_release: 
+          filters: &filters-production
+            tags:
+              only: /.*@.*/
+            branches:
+              ignore: /.*/
+      # - deploy:
+      #     requires:
+      #       - build
+      #     filters:
+      #       <<: *filters-production # this is calling the previously set yaml anchor
+
+
+jobs:
+  install_dependencies:
+    docker:
+      - image: cimg/node:15.5.1
+    steps:
+      - restore_cache:
+          key: dependencies-{{ checksum "yarn.lock" }}
+      - checkout
+      - run: yarn set version berry
+      - run: yarn --frozen-lockfile --cache-folder .yarn/cache
+      - save_cache:
+          key: dependencies-{{ checksum "yarn.lock" }}
+          paths:
+            - .yarn/cache
+            - ./.pnp.js
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - .yarn/cache
+            - ./.pnp.js
+
+  build_affected:
+    docker:
+      - image: cimg/node:15.5.1
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ./
+      - run: yarn set version berry
+      - run: yarn run affected:lint --base=$BASE
+      - run: yarn run affected:build --base=$BASE --prod --no-progress --skip-nx-cache
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - dist/*
+  build_release:
+    docker:
+      - image: cimg/node:15.5.1
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ./
+      - run: yarn set version berry
+      - run: yarn run nx lint $APP
+      - run: yarn run nx build $APP --prod --no-progress --skip-nx-cache
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - dist/*
+
+
+    

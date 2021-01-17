@@ -1,0 +1,19 @@
+{
+  "npmScope": "sonnymiel.com",
+  "affected": {
+    "defaultBase": "develop"
+  },
+  "implicitDependencies": {
+    "tsconfig.base.json": "*",
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "projects": {}
+}
