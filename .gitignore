@@ -45,3 +45,7 @@ Thumbs.db
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+/apps/portfolio/node_modules
+/apps/portfolio/public
+/apps/portfolio/.cache

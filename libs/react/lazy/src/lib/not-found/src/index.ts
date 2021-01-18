@@ -1,1 +1,1 @@
-export * from './lib/react-lazy-src-lib-not-found';
+export * from './lib/404';

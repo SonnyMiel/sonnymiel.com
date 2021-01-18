@@ -10,7 +10,10 @@
   },
   "projects": {
     "web-app-react-use-local-storage": { "tags": ["react"] },
+    "react-hooks-use-visibility": { "tags": ["react"] },
     "shared-api-reddit": { "tags": ["shared"] },
-    "react-lazy-src-lib-not-found": { "tags": ["react"] }
+    "react-lazy-src-lib-not-found": { "tags": ["react"] },
+    "portfolio": { "tags": ["react"] },
+    "portfolio-e2e": { "tags": [], "implicitDependencies": ["portfolio"] }
   }
 }

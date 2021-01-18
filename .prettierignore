@@ -3,3 +3,7 @@
 /dist
 /coverage
 
+
+/apps/portfolio/node_modules
+/apps/portfolio/public
+/apps/portfolio/.cache

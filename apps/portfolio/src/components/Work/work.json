@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "title": "Sonnymiel.com",
+    "content": "C'est un serveur web hebergé sur VPS. Chaque application est elle même au sein d'un simple cluster Kubernetes. J'utilise Kong pour rediriger les requetes vers mon cluster où un Ingress Kong route vers le service demandé. Chaque application est deployée grâce à Gitlab CI."
+  },
+  {
+    "id": 2,
+    "title": "Portfolio",
+    "content": "J'ai créé ce portfolio en Juillet 2020 pour préparer la fin de mes études. Je voulais avoir quelque chose à montrer aux entreprises en plus de mon diplome d'ingénieur."
+  },
+  {
+    "id": 3,
+    "title": "Clone d'Amazon",
+    "content": "C'est un clone minime d'Amazon fait en utilisant React, Redux, MaterialUI et Firebase pour gérer l'authentification.",
+    "link": "http://amazon.sonnymiel.com"
+  },
+  {
+    "id": 4,
+    "title": "Application Web en Pologne",
+    "content": "Pendant mon Erasmus en Pologne, nous devions développer une application web en utilisant Angular 8 pour le front et .NET pour le backend. L'idée était de développer une application qui ajoute des éléments de 'gamifications' à l'université."
+  },
+  {
+    "id": 5,
+    "title": "Projet Java",
+    "content": "Création d'une application Java pour le management d'employé. Le système devait simuler le principe de pointage dans un contexte multi-threadé."
+  },
+  {
+    "id": 6,
+    "title": "Shell Unix",
+    "content": "À Polytech Tours, nous devions développer un shell complétement fonctionnel en C."
+  },
+  {
+    "id": 7,
+    "title": "Jeu du Morpion (En Cours)",
+    "content": "Afin d'apprendre React et SocketIO, je suis en train de travailler sur un jeu de morpion en multijoueur.\nLe backend de l'application est en NodeJS/Express."
+  },
+  {
+    "id": 8,
+    "title": "Startup (En Cours)",
+    "content": "Pendant mon temps libre je travaille avec des amis afin de lancer une Startup. Au vu de son avancement, je ne détaillerai rien d'autre que les technos utilisées, Nx pour la gestion du monorepo, Angular pour l'application web et NestJS pour les microservices."
+  }
+]
