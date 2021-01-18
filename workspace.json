@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "projects": {  },
+  "projects": {},
   "cli": {
     "defaultCollection": "@nrwl/react"
   },
-  "schematics": {
+  "generators": {
     "@nrwl/react": {
       "application": {
         "style": "scss",
