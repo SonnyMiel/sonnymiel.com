@@ -15,7 +15,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@sonnymiel.com/web-app/react": [
+        "libs/web-app/react/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

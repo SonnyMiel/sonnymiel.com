@@ -8,5 +8,7 @@
       "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
     }
   },
-  "projects": {  }
+  "projects": {
+    "web-app-react-use-local-storage": { "tags": ["web-app", "react"] }
+  }
 }

@@ -1,6 +1,32 @@
 {
   "version": 2,
-  "projects": {},
+  "projects": {
+    "web-app-react-use-local-storage": {
+      "root": "libs/web-app/react/use-local-storage",
+      "sourceRoot": "libs/web-app/react/use-local-storage/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web-app/react/use-local-storage/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/web-app/react/use-local-storage"
+          ],
+          "options": {
+            "jestConfig": "libs/web-app/react/use-local-storage/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "defaultCollection": "@nrwl/react"
   },

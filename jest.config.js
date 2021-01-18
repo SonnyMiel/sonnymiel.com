@@ -1,3 +1,3 @@
 module.exports = {
-  projects: [],
+  projects: ['<rootDir>/libs/web-app/react/use-local-storage'],
 };

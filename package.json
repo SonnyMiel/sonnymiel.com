@@ -40,6 +40,7 @@
     "@nrwl/web": "11.1.5",
     "@nrwl/workspace": "11.1.5",
     "@testing-library/react": "11.1.2",
+    "@testing-library/react-hooks": "^5.0.0",
     "@types/jest": "26.0.8",
     "@types/node": "12.12.38",
     "@types/react": "16.9.56",
