@@ -1,6 +1,6 @@
 {
   "npmScope": "sonnymiel.com",
-  "affected": { "defaultBase": "develop" },
+  "affected": { "defaultBase": "main" },
   "implicitDependencies": { "tsconfig.base.json": "*", ".eslintrc.json": "*" },
   "tasksRunnerOptions": {
     "default": {

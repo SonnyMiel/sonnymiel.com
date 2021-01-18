@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "react_component",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Component name",
+      "x-prompt": {
+        "message": "Name of the component",
+        "type": "string"
+      }
+    },
+    "project": {
+      "type": "string",
+      "description": "App name",
+      "x-prompt": {
+        "message": "Name of the app",
+        "type": "string"
+      }
+    },
+    "directory": {
+      "type": "string",
+      "description": "The directory to add the component",
+      "default": "src/app/Components/"
+    }
+  },
+  "required": ["name"]
+}

@@ -6,6 +6,9 @@
         "*.ts",
         "*.tsx"
       ],
+      "excludedFiles": [
+        "./tools/**/*.ts"
+      ],
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
         "ecmaVersion": 2021,

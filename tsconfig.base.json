@@ -17,5 +17,5 @@
     "baseUrl": ".",
     "paths": {}
   },
-  "exclude": [".yarn/cache", "tmp"]
+  "exclude": ["node_modules", "tmp"]
 }
