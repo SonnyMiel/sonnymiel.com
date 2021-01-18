@@ -312,7 +312,7 @@
           "as-needed"
         ],
         "radix": "error",
-        "simple-import-sort/sort": [
+        "simple-import-sort/imports": [
           "error",
           {
             "groups": [
@@ -431,7 +431,8 @@
             ],
             "format": [
               "UPPER_CASE",
-              "camelCase"
+              "camelCase",
+              "PascalCase"
             ]
           }
         ],
