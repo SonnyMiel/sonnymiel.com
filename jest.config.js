@@ -1,6 +1,7 @@
 module.exports = {
   projects: [
-    '<rootDir>/libs/web-app/react/use-local-storage',
+    '<rootDir>/libs/react/hooks/use-local-storage',
     '<rootDir>/libs/shared/api/reddit',
+    '<rootDir>/libs/react/lazy/src/lib/not-found',
   ],
 };

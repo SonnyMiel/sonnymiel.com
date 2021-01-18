@@ -2,25 +2,25 @@
   "version": 2,
   "projects": {
     "web-app-react-use-local-storage": {
-      "root": "libs/web-app/react/use-local-storage",
-      "sourceRoot": "libs/web-app/react/use-local-storage/src",
+      "root": "libs/react/hooks/use-local-storage",
+      "sourceRoot": "libs/react/hooks/use-local-storage/src",
       "projectType": "library",
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/web-app/react/use-local-storage/**/*.{ts,tsx,js,jsx}"
+              "libs/react/hooks/use-local-storage/**/*.{ts,tsx,js,jsx}"
             ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/libs/web-app/react/use-local-storage"
+            "coverage/libs/react/hooks/use-local-storage"
           ],
           "options": {
-            "jestConfig": "libs/web-app/react/use-local-storage/jest.config.js",
+            "jestConfig": "libs/react/hooks/use-local-storage/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -46,6 +46,56 @@
           ],
           "options": {
             "jestConfig": "libs/shared/api/reddit/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "react-lazy": {
+      "root": "libs/react/lazy",
+      "sourceRoot": "libs/react/lazy/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/react/lazy/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/react/lazy"
+          ],
+          "options": {
+            "jestConfig": "libs/react/lazy/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "react-lazy-src-lib-not-found": {
+      "root": "libs/react/lazy/src/lib/not-found",
+      "sourceRoot": "libs/react/lazy/src/lib/not-found/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/react/lazy/src/lib/not-found/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/react/lazy/src/lib/not-found"
+          ],
+          "options": {
+            "jestConfig": "libs/react/lazy/src/lib/not-found/jest.config.js",
             "passWithNoTests": true
           }
         }

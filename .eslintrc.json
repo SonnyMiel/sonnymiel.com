@@ -82,19 +82,6 @@
                 "onlyDependOnLibsWithTags": [
                   "scope:shared"
                 ]
-              },
-              {
-                "sourceTag": "scope:web-app",
-                "onlyDependOnLibsWithTags": [
-                  "scope:shared",
-                  "scope:web-app"
-                ]
-              },
-              {
-                "sourceTag": "type:util",
-                "onlyDependOnLibsWithTags": [
-                  "type:util"
-                ]
               }
             ]
           }

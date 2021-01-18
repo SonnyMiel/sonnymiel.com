@@ -9,7 +9,8 @@
     }
   },
   "projects": {
-    "web-app-react-use-local-storage": { "tags": ["web-app", "react"] },
-    "shared-api-reddit": { "tags": ["shared"] }
+    "web-app-react-use-local-storage": { "tags": ["react"] },
+    "shared-api-reddit": { "tags": ["shared"] },
+    "react-lazy-src-lib-not-found": { "tags": ["react"] }
   }
 }

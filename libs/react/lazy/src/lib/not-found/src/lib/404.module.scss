@@ -1,0 +1,43 @@
+.notFoundPage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #212f45;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+.notFoundPage_container {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  h1 {
+    font-size: 220px;
+    font-weight: 900;
+    letter-spacing: 10px;
+  }
+  h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+  a {
+    padding: 15px;
+    display: inline-block;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      background: #fff;
+      color: #212f45;
+      opacity: 0.9;
+    }
+    &:visited {
+      color: inherit;
+    }
+  }
+}
