@@ -25,6 +25,31 @@
           }
         }
       }
+    },
+    "shared-api-reddit": {
+      "root": "libs/shared/api/reddit",
+      "sourceRoot": "libs/shared/api/reddit/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/api/reddit/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/api/reddit"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/api/reddit/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

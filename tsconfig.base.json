@@ -11,15 +11,24 @@
     "allowJs": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
       "@sonnymiel.com/web-app/react": [
         "libs/web-app/react/index.ts"
+      ],
+      "@sonnymiel.com/shared/api": [
+        "libs/shared/api/index.ts"
       ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

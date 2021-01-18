@@ -9,6 +9,7 @@
     }
   },
   "projects": {
-    "web-app-react-use-local-storage": { "tags": ["web-app", "react"] }
+    "web-app-react-use-local-storage": { "tags": ["web-app", "react"] },
+    "shared-api-reddit": { "tags": ["shared"] }
   }
 }
