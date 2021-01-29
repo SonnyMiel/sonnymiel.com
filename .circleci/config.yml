@@ -19,7 +19,6 @@ workflows:
       #     filters:
       #       <<: *filters-production # this is calling the previously set yaml anchor
 
-
 jobs:
   install_dependencies:
     docker:
