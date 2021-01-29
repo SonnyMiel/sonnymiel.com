@@ -8,7 +8,7 @@ import { CONTACT } from '../../constant';
 import { RootState } from '../../state';
 import { actions } from '../../state/navbar';
 
-const Contact = () => {
+const Contact = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const anchorStyle = useSelector(
