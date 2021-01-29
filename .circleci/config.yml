@@ -33,9 +33,9 @@ jobs:
     docker:
       - image: cimg/node:15.5.1
     steps:
+      - checkout
       - restore_cache:
           key: dependencies-{{ checksum "yarn.lock" }}
-      - checkout
       - run: yarn set version berry
       - run: yarn
       - save_cache:
@@ -51,9 +51,9 @@ jobs:
     docker:
       - image: cimg/node:15.5.1
     steps:
+      - checkout
       - restore_cache:
           key: dependencies-{{ checksum "yarn.lock" }}
-      - checkout
       - attach_workspace:
           at: ./
       - run: yarn set version berry
@@ -71,9 +71,9 @@ jobs:
     docker:
       - image: cimg/node:15.5.1
     steps:
+      - checkout
       - restore_cache:
           key: dependencies-{{ checksum "yarn.lock" }}
-      - checkout
       - attach_workspace:
           at: ./
       - run: yarn set version berry
