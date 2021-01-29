@@ -1,8 +1,8 @@
 {
   "builders": {
     "docker": {
-      "implementation": "./",
-      "schema": "./schema.json",
+      "implementation": "./docker",
+      "schema": "./docker/schema.json",
       "description": "package application and push to github registry"
     }
   }

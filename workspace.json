@@ -119,6 +119,9 @@
             "jestConfig": "apps/portfolio/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "docker": {
+          "builder": "./tools/generators/builders:docker"
         }
       }
     },

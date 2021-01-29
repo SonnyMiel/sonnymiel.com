@@ -124,7 +124,7 @@ jobs:
       - checkout
       - <<: *docker_login
       - <<: *setup_base
-      - run: yarn run affected:docker --base=$BASE --registry=$GITHUB_CONTAINER_URL/$GITHUB_USERNAME/sonnymiel.com
+      - run: yarn run affected:docker --base=$BASE
 
   package_release:
     docker: 
@@ -133,6 +133,6 @@ jobs:
       - checkout
       - <<: *docker_login
       - <<: *parse_tag
-      - run: yarn run -- run $APP:docker --registry=$GITHUB_CONTAINER_URL/$GITHUB_USERNAME/sonnymiel.com --version=$VERSION
+      - run: yarn run -- run $APP:docker --version=$VERSION
 
 

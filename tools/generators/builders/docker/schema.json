@@ -5,7 +5,7 @@
     "registry": {
       "type": "string",
       "description": "Gitlab registry to push the docker image",
-      "default": "ghcr.io/SonnyMiel"
+      "default": "ghcr.io/sonnymiel/sonnymiel.com"
     },
     "version": {
       "type": "string",
