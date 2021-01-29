@@ -122,7 +122,7 @@ jobs:
       - setup_remote_docker: 
           version: 19.03.13
           docker_layer_caching: false
-      - run: echo $GITLAB_CONTAINER_PAT | docker login -u $GITLAB_USERNAME --password-stdin
+      - run: echo $GITHUB_CONTAINER_PAT | docker login $GITHUB_CONTAINER_URL -u $GITHUB_USERNAME --password-stdin 
       - run: yarn run affected:docker --base=$BASE
 
   package_release:
@@ -138,7 +138,7 @@ jobs:
       - setup_remote_docker: 
           version: 19.03.13
           docker_layer_caching: false
-      - run: echo $GITLAB_CONTAINER_PAT | docker login -u $GITLAB_USERNAME --password-stdin
+      - run: echo $GITHUB_CONTAINER_PAT | docker login $GITHUB_CONTAINER_URL -u $GITHUB_USERNAME -p --password-stdin 
       - run: yarn run nx -- run $APP:docker --version=$VERSION
 
 
