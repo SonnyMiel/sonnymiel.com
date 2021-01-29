@@ -24,7 +24,6 @@ const Contact = () => {
 
   const sendEmail = (event: FormEvent): void => {
     event.preventDefault();
-    console.log("We test circleCI");
   };
 
   return (
