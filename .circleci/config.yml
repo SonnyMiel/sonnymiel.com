@@ -19,6 +19,8 @@ parse_tag: &parse_tag
 
 setup_base: &setup_base
   - run: |
+      echo $CIRCLE_BRANCH
+      echo $($CIRCLE_BRANCH == "main")
       if [ $CIRCLE_BRANCH == "main" ]; then
         BASE=remotes/origin/main~1
       else 
