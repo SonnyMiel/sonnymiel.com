@@ -28,11 +28,12 @@ setup_base: &setup_base
       fi
 
 docker_login: &docker_login
-  - run: apk update
-  - run: apk add git
-  - run: apk add --update nodejs npm yarn
-  - run: yarn set version berry
-  - run: echo $GITHUB_CONTAINER_PAT | docker login $GITHUB_CONTAINER_URL -u $GITHUB_USERNAME --password-stdin
+  - run: |
+      apk update;
+      apk add git;
+      apk add --update nodejs npm yarn;
+      yarn set version berry;
+      echo $GITHUB_CONTAINER_PAT | docker login $GITHUB_CONTAINER_URL -u $GITHUB_USERNAME --password-stdin;
 
 workflows:
   staging:
