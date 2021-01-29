@@ -70,6 +70,9 @@ jobs:
       - attach_workspace:
           at: ./
       - run: yarn set version berry
+      - run: echo $BASE
+      - run: echo $CIRCLE_BRANCH
+      - run: echo [ $CIRCLE_BRANCH = "main" ]
       - run: yarn run affected:lint --base=$BASE
       - run: yarn run affected:build --base=$BASE --prod --no-progress --skip-nx-cache
       - save_cache:
