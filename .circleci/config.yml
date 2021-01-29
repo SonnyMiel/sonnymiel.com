@@ -1,19 +1,14 @@
 version: 2.1
 
-release_only: &staging_only
+release_only: &release_only
   filters:
-    branches:
-      tags:
-        only: /.*@.*/
-      branches:
-        ignore: /.*/
+    tags:
+      only: /.*@.*/
 
 staging_only: &staging_only
   filters:
-    branches:
-      branches:
-        tags: 
-          ignore: /.*/
+    tags: 
+      ignore: /.*/
           
 workflows:
   build:
