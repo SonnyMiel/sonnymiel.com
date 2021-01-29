@@ -137,7 +137,7 @@ jobs:
       - <<: *parse_tag
       - setup_remote_docker: 
           version: 19.03.0
-          docker_layer_caching: true
+          docker_layer_caching: false
       - run: echo $GITLAB_CONTAINER_PAT | docker login -u $GITLAB_USERNAME --password-stdin
       - run: yarn run nx -- run $APP:docker --version=$VERSION
 
