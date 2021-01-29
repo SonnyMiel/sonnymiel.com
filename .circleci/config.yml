@@ -1,5 +1,6 @@
 version: 2.1
 
+###### FILTERS ######
 release_only: &release_only
   filters:
     tags:
@@ -12,6 +13,7 @@ staging_only: &staging_only
     tags: 
       ignore: /.*/
           
+###### ANCHORS ######
 parse_tag: &parse_tag
   - run: |
       echo "export APP=$(echo $CIRCLE_TAG | cut -d'@' -f1)" >> $BASH_ENV
@@ -25,24 +27,36 @@ setup_base: &setup_base
         echo "export BASE=remotes/origin/main" >> $BASH_ENV
       fi
 
+docker_login: &docker_login
+  - run: apk update
+  - run: apk add git
+  - run: apk add --update nodejs npm
+  - run: echo $GITHUB_CONTAINER_PAT | docker login $GITHUB_CONTAINER_URL -u $GITHUB_USERNAME --password-stdin
+
 workflows:
-  build:
+  staging:
     jobs:
       - install_dependencies
       - build_affected: 
           <<: *staging_only
           requires:
             - install_dependencies
+      - package_affected:
+          <<: *staging_only
+          requires:
+            - build_affected
+  production:
+    jobs:
+      - install_dependencies:
+          <<: *release_only
       - build_release:
           <<: *release_only
           requires:
             - install_dependencies
-
-      # - deploy:
-      #     requires:
-      #       - build
-      #     filters:
-      #       <<: *filters-production # this is calling the previously set yaml anchor
+      - package_release:
+          <<: *release_only
+          requires:
+            - build_release
 
 jobs:
   install_dependencies:
@@ -102,3 +116,23 @@ jobs:
           root: ./
           paths:
             - dist/*
+
+  package_affected:
+    docker: 
+      - image: docker:19.03.0-dind
+    steps:
+      - checkout
+      - <<: *docker_login
+      - <<: *setup_base
+      - run: yarn run affected:docker --base=$BASE --registry=$GITHUB_CONTAINER_URL/$GITHUB_USERNAME/sonnymiel.com
+
+  package_release:
+    docker: 
+      - image: docker:19.03.0-dind
+    steps:
+      - checkout
+      - <<: *docker_login
+      - <<: *parse_tag
+      - run: yarn run -- run $APP:docker --registry=$GITHUB_CONTAINER_URL/$GITHUB_USERNAME/sonnymiel.com --version=$VERSION
+
+
