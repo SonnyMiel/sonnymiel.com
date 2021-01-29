@@ -19,7 +19,7 @@ parse_tag: &parse_tag
 
 setup_base: &setup_base
   - run: |
-      if [ $CI_COMMIT_BRANCH == "main" ]; then
+      if [ $CIRCLE_BRANCH == "main" ]; then
         BASE=remotes/origin/main~1
       else 
         BASE=remotes/origin/main
