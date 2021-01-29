@@ -30,7 +30,8 @@ setup_base: &setup_base
 docker_login: &docker_login
   - run: apk update
   - run: apk add git
-  - run: apk add --update nodejs npm
+  - run: apk add --update nodejs npm yarn
+  - run: yarn set version berry
   - run: echo $GITHUB_CONTAINER_PAT | docker login $GITHUB_CONTAINER_URL -u $GITHUB_USERNAME --password-stdin
 
 workflows:
@@ -124,6 +125,8 @@ jobs:
       - checkout
       - <<: *docker_login
       - <<: *setup_base
+      - attach_workspace:
+          at: ./
       - run: yarn run affected:docker --base=$BASE
 
   package_release:
@@ -133,6 +136,8 @@ jobs:
       - checkout
       - <<: *docker_login
       - <<: *parse_tag
+      - attach_workspace:
+          at: ./
       - run: yarn run -- run $APP:docker --version=$VERSION
 
 
