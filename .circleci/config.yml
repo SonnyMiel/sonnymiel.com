@@ -38,11 +38,11 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependencies-{{ checksum "yarn.lock" }}
+          key: dependencies-{{.Environment.CACHE_VERSION }}-{{ checksum "yarn.lock" }}
       - run: yarn set version berry
       - run: yarn
       - save_cache:
-          key: dependencies-{{ checksum "yarn.lock" }}
+          key: dependencies-{{.Environment.CACHE_VERSION }}-{{ checksum "yarn.lock" }}
           paths:
             - node_modules/
 
@@ -52,14 +52,14 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependencies-{{ checksum "yarn.lock" }}
+          key: dependencies-{{.Environment.CACHE_VERSION }}-{{ checksum "yarn.lock" }}
       - attach_workspace:
           at: ./
       - run: yarn set version berry
       - run: yarn run affected:lint
       - run: yarn run affected:build --prod --no-progress --skip-nx-cache
       - save_cache:
-          key: dependencies-{{ checksum "yarn.lock" }}
+          key: dependencies-{{.Environment.CACHE_VERSION }}-{{ checksum "yarn.lock" }}
           paths:
             - node_modules/
       - persist_to_workspace:
@@ -72,7 +72,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependencies-{{ checksum "yarn.lock" }}
+          key: dependencies-{{.Environment.CACHE_VERSION }}-{{ checksum "yarn.lock" }}
       - attach_workspace:
           at: ./
       - run: yarn set version berry
@@ -81,7 +81,7 @@ jobs:
       - run: yarn run nx lint $APP
       - run: yarn run nx build $APP --prod --no-progress --skip-nx-cache
       - save_cache:
-          key: dependencies-{{ checksum "yarn.lock" }}
+          key: dependencies-{{.Environment.CACHE_VERSION }}-{{ checksum "yarn.lock" }}
           paths:
             - node_modules/
       - persist_to_workspace:
