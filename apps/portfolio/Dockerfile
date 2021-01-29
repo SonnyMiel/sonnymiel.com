@@ -1,4 +1,4 @@
-FROM nginx:1.17.0
+FROM nginx:stable
 
 COPY nginx.conf /etc/nginx/
 
