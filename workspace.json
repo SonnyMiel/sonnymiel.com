@@ -85,7 +85,7 @@
         "build": {
           "executor": "@nrwl/gatsby:build",
           "options": {
-            "outputPath": "apps/portfolio/public",
+            "outputPath": "dist/portfolio/public",
             "uglify": true,
             "color": true,
             "profile": false
