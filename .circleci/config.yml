@@ -14,15 +14,15 @@ staging_only: &staging_only
           
 parse_tag: &parse_tag
   - run: |
-      APP=$(echo $CIRCLE_TAG | cut -d'@' -f1)
-      VERSION=$(echo $CIRCLE_TAG | cut -d'@' -f2)
+      echo "export APP=$(echo $CIRCLE_TAG | cut -d'@' -f1)" >> $BASH_ENV
+      echo "export VERSION=$(echo $CIRCLE_TAG | cut -d'@' -f2)" >> $BASH_ENV
 
 setup_base: &setup_base
   - run: |
       if [ $CIRCLE_BRANCH = "main" ]; then
-        BASE=remotes/origin/main~1
+        echo "export BASE=remotes/origin/main~1" >> $BASH_ENV
       else 
-        BASE=remotes/origin/main
+        echo "export BASE=remotes/origin/main" >> $BASH_ENV
       fi
 
 workflows:
