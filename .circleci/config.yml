@@ -31,9 +31,7 @@ docker_login: &docker_login
   - run: |
       apk update;
       apk add git;
-      apk add --update nodejs npm;
-      npm install -g yarn;
-      yarn set version berry;
+      apk add --update nodejs npm yarn;
       echo $GITHUB_CONTAINER_PAT | docker login $GITHUB_CONTAINER_URL -u $GITHUB_USERNAME --password-stdin;
 
 workflows:
