@@ -120,7 +120,7 @@ jobs:
           at: ./
       - <<: *setup_base
       - setup_remote_docker: 
-          version: 19.03.0
+          version: 19.03.13
           docker_layer_caching: false
       - run: echo $GITLAB_CONTAINER_PAT | docker login -u $GITLAB_USERNAME --password-stdin
       - run: yarn run affected:docker --base=$BASE
@@ -136,7 +136,7 @@ jobs:
           at: ./
       - <<: *parse_tag
       - setup_remote_docker: 
-          version: 19.03.0
+          version: 19.03.13
           docker_layer_caching: false
       - run: echo $GITLAB_CONTAINER_PAT | docker login -u $GITLAB_USERNAME --password-stdin
       - run: yarn run nx -- run $APP:docker --version=$VERSION
