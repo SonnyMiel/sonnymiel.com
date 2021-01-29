@@ -27,13 +27,6 @@ setup_base: &setup_base
         echo "export BASE=remotes/origin/main" >> $BASH_ENV
       fi
 
-docker_login: &docker_login
-  - run: |
-      apk update;
-      apk add git;
-      apk add --update nodejs npm yarn;
-      echo $GITHUB_CONTAINER_PAT | docker login $GITHUB_CONTAINER_URL -u $GITHUB_USERNAME --password-stdin;
-
 workflows:
   staging:
     jobs:
@@ -104,8 +97,6 @@ jobs:
       - <<: *parse_tag
       - restore_cache:
           key: dependencies-{{.Environment.CACHE_VERSION }}-{{ checksum "yarn.lock" }}
-      - attach_workspace:
-          at: ./
       - run: yarn set version berry
       - run: yarn run nx lint $APP
       - run: yarn run nx build $APP --prod --no-progress --skip-nx-cache
@@ -120,16 +111,18 @@ jobs:
 
   package_affected:
     docker: 
-      - image: docker:19.03.0-dind
+      - image: cimg/node:15.5.1
     steps:
       - checkout
       - restore_cache:
           key: dependencies-{{.Environment.CACHE_VERSION }}-{{ checksum "yarn.lock" }}
-
-      - <<: *docker_login
-      - <<: *setup_base
       - attach_workspace:
           at: ./
+      - <<: *setup_base
+      - setup_remote_docker: 
+          version: 19.03.0
+          docker_layer_caching: true
+      - run: echo $GITLAB_CONTAINER_PAT | docker login -u $GITLAB_USERNAME --password-stdin
       - run: yarn run affected:docker --base=$BASE
 
   package_release:
@@ -139,10 +132,13 @@ jobs:
       - checkout
       - restore_cache:
           key: dependencies-{{.Environment.CACHE_VERSION }}-{{ checksum "yarn.lock" }}
-      - <<: *docker_login
-      - <<: *parse_tag
       - attach_workspace:
           at: ./
-      - run: yarn run -- run $APP:docker --version=$VERSION
+      - <<: *parse_tag
+      - setup_remote_docker: 
+          version: 19.03.0
+          docker_layer_caching: true
+      - run: echo $GITLAB_CONTAINER_PAT | docker login -u $GITLAB_USERNAME --password-stdin
+      - run: yarn run nx -- run $APP:docker --version=$VERSION
 
 
