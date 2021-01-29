@@ -37,7 +37,7 @@ jobs:
           key: dependencies-{{ checksum "yarn.lock" }}
       - checkout
       - run: yarn set version berry
-      - run: yarn --cache-folder .yarn/cache
+      - run: yarn
       - save_cache:
           key: dependencies-{{ checksum "yarn.lock" }}
           paths:
