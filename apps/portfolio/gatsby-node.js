@@ -15,7 +15,6 @@ exports.onPreInit = () => {
 }
 
 exports.onPostBuild = () => {
-    fs.mkdirSync(path.join(__dirname, "../../dist/portfolio"));
-    fs.mkdirSync(path.join(__dirname, "../../dist/portfolio/public"));
+    fs.mkdirSync(path.join(__dirname, "../../dist/portfolio/public"), { recursive: true });
     fs.renameSync(path.join(__dirname, "public"), path.join(__dirname, "../../dist/portfolio/public"));
 }
