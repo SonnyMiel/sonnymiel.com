@@ -44,7 +44,7 @@ jobs:
       - save_cache:
           key: dependencies-{{ checksum "yarn.lock" }}
           paths:
-            - .yarn/cache
+            - node_modules/
 
   build_affected:
     docker:
@@ -61,7 +61,7 @@ jobs:
       - save_cache:
           key: dependencies-{{ checksum "yarn.lock" }}
           paths:
-            - .yarn/cache
+            - node_modules/
       - persist_to_workspace:
           root: ./
           paths:
@@ -83,7 +83,7 @@ jobs:
       - save_cache:
           key: dependencies-{{ checksum "yarn.lock" }}
           paths:
-            - .yarn/cache
+            - node_modules/
       - persist_to_workspace:
           root: ./
           paths:
