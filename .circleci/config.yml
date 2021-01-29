@@ -1,18 +1,32 @@
 version: 2.1
 
+release_only: &staging_only
+  filters:
+    branches:
+      tags:
+        only: /.*@.*/
+      branches:
+        ignore: /.*/
+
+staging_only: &staging_only
+  filters:
+    branches:
+      branches:
+        tags: 
+          ignore: /.*/
+          
 workflows:
-  staging:
+  build:
     jobs:
       - install_dependencies
-  production:
-    jobs:
-      - install_dependencies
-      - build_release: 
-          filters: &filters-production
-            tags:
-              only: /.*@.*/
-            branches:
-              ignore: /.*/
+      - build_affected: 
+          <<: *staging_only
+          requires:
+            - install_dependencies
+      - build_release:
+          <<: *release_only
+          requires:
+            - install_dependencies
       # - deploy:
       #     requires:
       #       - build
