@@ -11,14 +11,16 @@
     "allowJs": true,
     "target": "es2015",
     "module": "esnext",
+    "typeRoots": ["node_modules/@types"],
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@sonnymiel.com/react": ["libs/react/index.ts"],
-      "@sonnymiel.com/shared/api": ["libs/shared/api/index.ts"],
-      "@sonnymiel.com/react/lazy": ["libs/react/lazy/src/index.ts"]
+      "@sonnymiel/react/hooks": ["libs/react/hooks/index.ts"],
+      "@sonnymiel/shared/api": ["libs/shared/api/index.ts"],
+      "@sonnymiel/shared/themes": ["libs/shared/themes/index.ts"],
+      "@sonnymiel/react/lazy": ["libs/react/lazy/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { useVisibility } from '@sonnymiel.com/react';
+import { useVisibility } from '@sonnymiel/react/hooks';
 
 import './index.scss';
 import { HOME } from '../../constant';

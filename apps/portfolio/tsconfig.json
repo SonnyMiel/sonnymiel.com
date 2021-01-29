@@ -8,9 +8,14 @@
     "module": "esnext",
     "resolveJsonModule": true
   },
-  "files": [
-    "../../node_modules/@nrwl/react/typings/cssmodule.d.ts",
-    "../../node_modules/@nrwl/react/typings/image.d.ts"
-  ],
-  "include": ["./src/**/*.ts, ./src/**/*.tsx"]
+  "files": [ ],
+  "include": [ ],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ]
 }

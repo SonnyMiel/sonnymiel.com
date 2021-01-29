@@ -1,11 +1,14 @@
 import { PageProps } from 'gatsby';
-import * as React from 'react';
+import React from 'react';
+
+import { NotFoundPage } from '@sonnymiel/react/lazy';
 
 const Error404Page: React.FC<PageProps> = () => (
-  <>
-    <h1>You are here!</h1>
-    <h2>But nothing found for you #404</h2>
-  </>
+  <NotFoundPage
+    description={'This is a gatsby application created by Sonny Miel.'}
+    lang={''}
+    title={'portfolio'}
+  />
 );
 
 export default Error404Page;
