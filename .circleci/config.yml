@@ -42,7 +42,7 @@ workflows:
       - deploy_affected:
           <<: *staging_only
           requires:
-            -package_affected
+            - package_affected
   production:
     jobs:
       - install_dependencies:
