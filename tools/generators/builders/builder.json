@@ -4,6 +4,11 @@
       "implementation": "./docker",
       "schema": "./docker/schema.json",
       "description": "package application and push to github registry"
+    },
+    "deploy": {
+      "implementation": "./deploy",
+      "schema": "./deploy/schema.json",
+      "description": "curl app name and version to keel endpoint to redeploy app on k8s"
     }
   }
 }

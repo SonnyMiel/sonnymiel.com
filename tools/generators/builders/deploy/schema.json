@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "properties": {
+    "endpoint": {
+      "type": "string",
+      "description": "keel endpoint where to send webhook"
+    },
+    "version": {
+      "type": "string",
+      "description": "Version to add in webhook"
+    },
+    "registry": {
+      "type": "string",
+      "description": "Container registry where package are stored"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["endpoint", "registry"]
+}

@@ -122,6 +122,9 @@
         },
         "docker": {
           "builder": "./tools/generators/builders:docker"
+        },
+        "deploy": {
+          "builder": "./tools/generators/builders:deploy"
         }
       }
     },

@@ -31,18 +31,22 @@ code {
 .hasTextCentered {
   text-align: center !important;
 }
+
 .isCentered {
   justify-content: center;
 }
+
 .container {
   flex-grow: 1;
   margin: 0 auto;
   position: relative;
   width: auto;
 }
+
 .anchor {
   position: relative;
 }
+
 .columns {
   margin-left: -0.75rem;
   margin-top: -0.75rem;
